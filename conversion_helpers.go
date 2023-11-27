@@ -206,7 +206,6 @@ func (rrch RunRequestConversionHelper) NewRunRequestFromDesiredLRP(
 
 	runInfo := executor.RunInfo{
 		RootFSPath:     rootFSPath,
-		CPUWeight:      uint(desiredLRP.CpuWeight),
 		Ports:          ConvertPortMappings(desiredLRP.Ports),
 		InternalRoutes: internalRoutes,
 		LogConfig: executor.LogConfig{
@@ -286,7 +285,6 @@ func (rrch RunRequestConversionHelper) NewRunRequestFromTask(task *models.Task, 
 	}
 	runInfo := executor.RunInfo{
 		RootFSPath: rootFSPath,
-		CPUWeight:  uint(task.CpuWeight),
 		Privileged: task.Privileged,
 		LogConfig: executor.LogConfig{
 			Guid:       task.LogGuid,
